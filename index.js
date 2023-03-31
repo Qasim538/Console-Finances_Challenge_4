@@ -86,3 +86,30 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+
+
+
+// Sum Section 
+
+// to get the some I am using for loop, so for loop will go through all the entries and keep adding
+
+
+var sum = 0;
+
+for (var i = 0; i < finances.length; i++ ) {
+    sum += finances[i][1];
+}
+
+
+// Average Section
+
+// Average formula will be 
+// avg = sum / finances.length
+
+
+
+// Console log section
+
+console.log("Total Months: " + finances.length)
+console.log("Total: $" + sum)
