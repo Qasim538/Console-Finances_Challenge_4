@@ -109,6 +109,7 @@ for (var i = 0; i < finances.length; i++ ) {
 
 
 
+
 // Console log section
 
 console.log("Total Months: " + finances.length)
