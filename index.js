@@ -93,56 +93,67 @@ var finances = [
 
 // to get the some I am using for loop, so for loop will go through all the entries and keep adding
 
+var length = finances.length;
+
+
+
 
 var sum = 0;
-
-
 
 for (var i = 0; i < finances.length; i++ ) {
     sum += finances[i][1];
 } 
 
 
+// Total Change
+
 var totalChange = 0;
+var pereviousValue = finances[0][1]
+var numChanges = finances.length - 1;
 
 for (var i = 1; i < finances.length; i++) {
-  var change = finances[i][1] - finances[i-1][1];
+  var currentValue = finances[i][1]
+  var change = currentValue - pereviousValue;
   totalChange += change;
+  pereviousValue = currentValue;
 }
 
-var averageChange = (totalChange / (finances.length - 1));
 
 
-console.log(averageChange)
-
-
+let averageChange = Math.floor(totalChange / numChanges);
 
 
 
-
-// var totalChange = 0;
-
-// for (var i = 1; i < finances.length; i++){
-//   var change = finances[i][1] - finances[i-1][1];
-//   totalChange += change;
-// }
-// var averageChange = Math.floor(totalChange / (finances.length - 1));
-// console.log(averageChange)
+// Profit and Losses 
 
 
 
+var maxIncrease = 0;
+var maxDecrease = 0; 
+var maxIncreaseMonth = '';
+var maxDecreaseMonth = '';
+
+for (var i = 1; i < finances.length; i++){
+  var change = finances[i][1] - finances[i-1][1];
+
+
+if (change > maxIncrease) {
+    maxIncrease = change;
+    maxIncreaseMonth = finances[i][0];
+}
+
+if(change < maxDecrease) {
+  maxDecrease = change;
+  maxDecreaseMonth = finances[i][0];
+}
+}
 
 
 
-// Average Change Section
-
-// to find out average change we need to find minimum change and maximum change;
 
 
 
 
-// Average formula will be 
-// avg = sum / finances.length
 
 
 
@@ -151,3 +162,6 @@ console.log(averageChange)
 
 console.log("Total Months: " + finances.length)
 console.log("Total: $" + sum)
+console.log("Average Change: " + averageChange) 
+console.log ('Greatest Increase in Profits/Losses:', maxIncreaseMonth, '($' + maxIncrease + ')');
+console.log ('Greatest Decrease in Profits/Losses:', maxDecreaseMonth, '($' + maxDecrease + ')');
