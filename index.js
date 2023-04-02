@@ -91,11 +91,14 @@ var finances = [
 
 // Sum Section 
 
-// to get the some I am using for loop, so for loop will go through all the entries and keep adding
+// just to get the total number of items in Array
 
 var length = finances.length;
 
 
+
+
+// To get the sum I am using for loop, so for loop will go through all the entries and keep adding.
 
 
 var sum = 0;
@@ -105,11 +108,17 @@ for (var i = 0; i < finances.length; i++ ) {
 } 
 
 
+
 // Total Change
+
+
 
 var totalChange = 0;
 var pereviousValue = finances[0][1]
 var numChanges = finances.length - 1;
+
+
+// for loop will go through and give us current value. and thus we can figure out change by subtracting current value from previous value.
 
 for (var i = 1; i < finances.length; i++) {
   var currentValue = finances[i][1]
@@ -126,6 +135,7 @@ let averageChange = Math.floor(totalChange / numChanges);
 
 // Profit and Losses 
 
+// To find out average profit and losses we need to find the change by substracting new value from old so change = old entry - new entry. and this process will loop through the Array. 
 
 
 var maxIncrease = 0;
@@ -134,31 +144,29 @@ var maxIncreaseMonth = '';
 var maxDecreaseMonth = '';
 
 for (var i = 1; i < finances.length; i++){
-  var change = finances[i][1] - finances[i-1][1];
+    var change = finances[i][1] - finances[i-1][1];
 
+
+// if change is greater than maximum Increase max increace will pick up the process change from above for loop.
 
 if (change > maxIncrease) {
     maxIncrease = change;
     maxIncreaseMonth = finances[i][0];
 }
 
-if(change < maxDecrease) {
-  maxDecrease = change;
-  maxDecreaseMonth = finances[i][0];
+
+if (change < maxDecrease) {
+    maxDecrease = change;
+    maxDecreaseMonth = finances[i][0];
 }
 }
-
-
-
-
-
-
-
-
 
 
 
 // Console log section
+// I have kept all the console logs below.
+
+
 
 console.log("Total Months: " + finances.length)
 console.log("Total: $" + sum)
