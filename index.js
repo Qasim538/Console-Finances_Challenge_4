@@ -89,7 +89,6 @@ var finances = [
 
 
 
-
 // Sum Section 
 
 // to get the some I am using for loop, so for loop will go through all the entries and keep adding
@@ -97,12 +96,50 @@ var finances = [
 
 var sum = 0;
 
+
+
 for (var i = 0; i < finances.length; i++ ) {
     sum += finances[i][1];
+} 
+
+
+var totalChange = 0;
+
+for (var i = 1; i < finances.length; i++) {
+  var change = finances[i][1] - finances[i-1][1];
+  totalChange += change;
 }
 
+var averageChange = (totalChange / (finances.length - 1));
 
-// Average Section
+
+console.log(averageChange)
+
+
+
+
+
+
+// var totalChange = 0;
+
+// for (var i = 1; i < finances.length; i++){
+//   var change = finances[i][1] - finances[i-1][1];
+//   totalChange += change;
+// }
+// var averageChange = Math.floor(totalChange / (finances.length - 1));
+// console.log(averageChange)
+
+
+
+
+
+
+// Average Change Section
+
+// to find out average change we need to find minimum change and maximum change;
+
+
+
 
 // Average formula will be 
 // avg = sum / finances.length
